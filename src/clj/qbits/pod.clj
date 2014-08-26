@@ -1,5 +1,6 @@
 (ns qbits.pod
-  (:refer-clojure :exclude [reset!]))
+  (:refer-clojure :exclude [reset! swap!])
+  (:import (java.io Writer)))
 
 (defprotocol PPod
   (reset! [this x])
@@ -17,6 +18,11 @@
   (deref [this]
     val))
 
-(defn pod
-  [x]
-  (Pod. x))
+(defmacro swap!
+  [p f & args]
+  `(reset! ~p (~f (deref ~p) ~@args)))
+
+(defn pod [x] (Pod. x))
+
+(defmethod print-method Pod [p ^Writer w]
+  (.write w (str "<< " @p " >>")))

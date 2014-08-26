@@ -1,8 +1,23 @@
 # pod
-<!-- [![Build Status](https://secure.travis-ci.org/mpenet/pod.png?branch=master)](http://travis-ci.org/mpenet/pod) -->
+[![Build Status](https://secure.travis-ci.org/mpenet/pod.png?branch=master)](http://travis-ci.org/mpenet/pod)
 
-Cheap/lightweight volatile type inspired by what could come out from
+Cheap/lightweight volatile mutable type inspired by what could come out from
 CLJ-1512, but available now and in pure clojure.
+
+You probably don't need this. Use at your own risk.
+
+```clojure
+(require '[qbits.pod :as p])
+
+(let [p (p/pod 1)]
+  (p/reset! p 2)
+  (p/setf! p inc)
+  (p/swap! p (fn [old x y] (+ old x y)) 2 3)
+  (println @p))
+
+=> 8
+
+```
 
 ## Installation
 
