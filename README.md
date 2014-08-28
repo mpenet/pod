@@ -26,7 +26,7 @@ qbits.pod is [available on Clojars](https://clojars.org/cc.qbits/pod).
 Add this to your dependencies:
 
 ```clojure
-[cc.qbits/pod "0.1.0"]
+[cc.qbits/pod "0.2.0"]
 ```
 
 Please check the
