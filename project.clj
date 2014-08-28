@@ -1,4 +1,4 @@
-(defproject cc.qbits/pod "0.1.0"
+(defproject cc.qbits/pod "0.2.0"
   :description ""
   :url "https://github.com/mpenet/pod"
   :license {:name "Eclipse Public License"
